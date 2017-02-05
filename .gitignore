@@ -1,0 +1,12 @@
+# IDEA project files
+/.idea
+/*.iml
+
+# Ignore node_modules
+/node_modules
+
+# Ignore npm debug logs
+/npm-debug.log
+
+# Ignore dist directory
+/dist
