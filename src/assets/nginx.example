@@ -1,0 +1,26 @@
+server {
+    listen 46.36.221.212:80;
+    server_name example.ru www.example.ru;
+
+    return 301 https://example.ru$request_uri;
+}
+
+server {
+    listen 46.36.221.212:443 ssl;
+    server_name www.example.ru;
+
+    ssl_certificate /etc/nginx/ssl/example.ru.bundle.crt;
+    ssl_certificate_key /etc/nginx/ssl/example.ru.key;
+
+    return 301 https://example.ru$request_uri;
+}
+
+server {
+    listen 46.36.221.212:443 ssl;
+    server_name example.ru;
+
+    ssl_certificate /etc/nginx/ssl/example.ru.bundle.crt;
+    ssl_certificate_key /etc/nginx/ssl/example.ru.key;
+    
+    ...
+}
