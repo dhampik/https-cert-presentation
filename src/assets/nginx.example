@@ -1,26 +1,26 @@
 server {
     listen 46.36.221.212:80;
-    server_name example.ru www.example.ru;
+    server_name example.com www.example.com;
 
-    return 301 https://example.ru$request_uri;
+    return 301 https://example.com$request_uri;
 }
 
 server {
     listen 46.36.221.212:443 ssl;
-    server_name www.example.ru;
+    server_name www.example.com;
 
-    ssl_certificate /etc/nginx/ssl/example.ru.bundle.crt;
-    ssl_certificate_key /etc/nginx/ssl/example.ru.key;
+	ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
 
-    return 301 https://example.ru$request_uri;
+    return 301 https://example.com$request_uri;
 }
 
 server {
     listen 46.36.221.212:443 ssl;
-    server_name example.ru;
+    server_name example.com;
 
-    ssl_certificate /etc/nginx/ssl/example.ru.bundle.crt;
-    ssl_certificate_key /etc/nginx/ssl/example.ru.key;
+	ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
     
     ...
 }

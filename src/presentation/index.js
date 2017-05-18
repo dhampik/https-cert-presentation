@@ -122,7 +122,7 @@ export default class Presentation extends React.Component {
                     <List textColor="primary">
                         <Appear><ListItem>There is <Link textColor="quartenary" href="https://letsencrypt.org/docs/rate-limits/">rate-limiting</Link></ListItem></Appear>
                         <Appear><ListItem>All configs are in /etc/letsencrypt</ListItem></Appear>
-                        <Appear><ListItem>.well-know directory is used to validate domain</ListItem></Appear>
+                        <Appear><ListItem>.well-known directory is used to validate domain</ListItem></Appear>
                     </List>
                 </Slide>
                 <Slide transition={["spin", "slide"]} bgColor="secondary">
@@ -133,6 +133,7 @@ export default class Presentation extends React.Component {
                     <Heading size={1} fit caps lineHeight={1} textColor="tertiary">Nginx configuration</Heading>
                     <CodePane source={require("raw-loader!../assets/nginx.example")} margin="20px auto" />
                     <Appear><Text>Test HTTPS with <Link textColor="quartenary" href="https://www.ssllabs.com/ssltest/">SSL Labs</Link></Text></Appear>
+                    <Appear><Link textColor="quartenary" href="https://weakdh.org/sysadmin.html">Check dhparams</Link></Appear>
                 </Slide>
                 <Slide transition={["spin", "slide"]} bgColor="secondary">
                     <Heading size={1} fit caps lineHeight={1} textColor="tertiary">HTTP to HTTPS checklist</Heading>
@@ -167,8 +168,9 @@ export default class Presentation extends React.Component {
                     <List textColor="primary">
                         <Appear><ListItem>Strict-Transport-Security: max-age=31536000; includeSubDomains; preload</ListItem></Appear>
                         <Appear><ListItem>307 redirect</ListItem></Appear>
-                        <Appear><ListItem>Preloaded HSTS <Link textColor="quartenary" href="https://www.chromium.org/hsts">https://www.chromium.org/hsts</Link></ListItem></Appear>
                         <Appear><ListItem><Link textColor="quartenary" href="chrome://net-internals/#hsts">chrome://net-internals/#hsts</Link></ListItem></Appear>
+                        <Appear><ListItem>Preloaded HSTS <Link textColor="quartenary" href="https://www.chromium.org/hsts">https://www.chromium.org/hsts</Link></ListItem></Appear>
+                        <Appear><ListItem><Link textColor="quartenary" href="https://hstspreload.org/">hstspreload.org</Link></ListItem></Appear>
                     </List>
                 </Slide>
                 <Slide transition={["spin", "slide"]} bgColor="secondary">
@@ -178,6 +180,9 @@ export default class Presentation extends React.Component {
                         <Appear><ListItem>Check HTTP/2 support at <Link textColor="quartenary" href="https://tools.keycdn.com/http2-test">https://tools.keycdn.com/http2-test</Link></ListItem></Appear>
                         <Appear><ListItem>NPN (Next Protocol Negotiation) vs ALPN (Application Layer Protocol Negotiation)</ListItem></Appear>
                     </List>
+                </Slide>
+                <Slide transition={["zoom", "spin"]} bgColor="primary">
+                    <Heading size={1} fit caps lineHeight={1} textColor="secondary">Thank you!</Heading>
                 </Slide>
             </Deck>
         );
